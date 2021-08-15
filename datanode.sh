@@ -31,10 +31,10 @@ cat <<EOF | sudo tee /opt/hadoop/hadoop-3.2.2/etc/hadoop/core-site.xml
 		<name>hadoop.tmp.dir</name>
 		<value>/opt/hadoop/local_data/tmp</value>
 	</property>
-        <property>
-                <name>hadoop.http.staticuser.user</name>
-                <value>hadoop</value>
-        </property>		
+  <property>
+    <name>hadoop.http.staticuser.user</name>
+    <value>hadoop</value>
+  </property>
 </configuration>
 EOF
 
@@ -62,10 +62,10 @@ cat <<EOF | sudo tee /opt/hadoop/hadoop-3.2.2/etc/hadoop/hdfs-site.xml
 		<name>dfs.datanode.dir</name>
 		<value>/opt/hadoop/local_data/datanode</value>
 	</property>
-        <property>
-                <name>dfs.replication</name>
-                <value>3</value>
-        </property>	
+  <property>
+    <name>dfs.replication</name>
+    <value>3</value>
+  </property>
 </configuration>
 EOF
 
@@ -86,30 +86,26 @@ cat <<EOF | sudo tee /opt/hadoop/hadoop-3.2.2/etc/hadoop/mapred-site.xml
   See the License for the specific language governing permissions and
   limitations under the License. See accompanying LICENSE file.
 -->
-<configuration>
 
 <!-- Site specific YARN configuration properties -->
 
-    <property>
-        <name>mapreduce.framework.name</name>
-        <value>yarn</value>
-    </property>
-    
-<property>                                                                                                                                                                                                                                                                        
-  <name>yarn.app.mapreduce.am.env</name>                                                                                                                                                                                                                                          
-  <value>HADOOP_MAPRED_HOME=/opt/hadoop/hadoop-3.2.2</value>                                                                                                                                                                                            
-</property>                                                                                                                                                                                                                                                                       
-<property>                                                                                                                                                                                                                                                                        
-  <name>mapreduce.map.env</name>                                                                                                                                                                                                                                                  
-  <value>HADOOP_MAPRED_HOME=/opt/hadoop/hadoop-3.2.2</value>                                                                                                                                                                                            
-</property>                                                                                                                                                                                                                                                                       
-<property>                                                                                                                                                                                                                                                                        
-  <name>mapreduce.reduce.env</name>                                                                                                                                                                                                                                               
-  <value>HADOOP_MAPRED_HOME=/opt/hadoop/hadoop-3.2.2</value>                                                                                                                                                                                            
-</property> 
-
-
-
+<configuration>
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+  </property>
+  <property>
+    <name>yarn.app.mapreduce.am.env</name>
+    <value>HADOOP_MAPRED_HOME=/opt/hadoop/hadoop-3.2.2</value>
+  </property>
+  <property>
+    <name>mapreduce.map.env</name>
+    <value>HADOOP_MAPRED_HOME=/opt/hadoop/hadoop-3.2.2</value>
+  </property>
+  <property>
+    <name>mapreduce.reduce.env</name>
+    <value>HADOOP_MAPRED_HOME=/opt/hadoop/hadoop-3.2.2</value>
+  </property>
 </configuration>
 EOF
 
@@ -128,24 +124,22 @@ cat <<EOF | sudo tee /opt/hadoop/hadoop-3.2.2/etc/hadoop/yarn-site.xml
   See the License for the specific language governing permissions and
   limitations under the License. See accompanying LICENSE file.
 -->
-<configuration>
 
 <!-- Site specific YARN configuration properties -->
-        <property>
-                <name>yarn.resourcemanager.hostname</name>
-                <value>resourcemanager.example.org</value>
-        </property>
 
-<property>
-   <name>yarn.nodemanager.aux-services</name>
-   <value>mapreduce_shuffle</value>
- </property>
- <property>
-   <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
-   <value>org.apache.hadoop.mapred.ShuffleHandler</value>
- </property>
-
-
+<configuration>
+  <property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>resourcemanager.example.org</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
 </configuration>
 EOF
 

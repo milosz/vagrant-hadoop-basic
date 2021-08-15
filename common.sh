@@ -81,7 +81,7 @@ cat <<EOF | sudo tee /etc/hosts
 172.16.0.150 client.example.org
 EOF
 
-hostname | grep -q example.org || sudo hostnamectl --static set-hostname $(hostname).example.org
+hostname -f | grep -q example.org || sudo hostnamectl --static set-hostname $(hostname).example.org
 
 if [ "$(hostname)" == "namenode.example.org" ]; then
   bash /vagrant/namenode.sh
@@ -110,4 +110,3 @@ fi
 if [ "$(hostname)" == "client.example.org" ]; then
   bash /vagrant/client.sh
 fi
-

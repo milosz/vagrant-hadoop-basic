@@ -31,10 +31,10 @@ cat <<EOF | sudo tee /opt/hadoop/hadoop-3.2.2/etc/hadoop/core-site.xml
 		<name>hadoop.tmp.dir</name>
 		<value>/opt/hadoop/local_data/tmp</value>
 	</property>
-        <property>
-                <name>hadoop.http.staticuser.user</name>
-                <value>hadoop</value>
-        </property>		
+  <property>
+    <name>hadoop.http.staticuser.user</name>
+    <value>hadoop</value>
+  </property>
 </configuration>
 EOF
 
@@ -62,12 +62,11 @@ cat <<EOF | sudo tee /opt/hadoop/hadoop-3.2.2/etc/hadoop/hdfs-site.xml
 		<name>dfs.namenode..checkpoint.dir</name>
 		<value>/opt/hadoop/local_data/secondarynamenode</value>
 	</property>
-        <property>
-                <name>dfs.replication</name>
-                <value>3</value>
-        </property>
+  <property>
+    <name>dfs.replication</name>
+    <value>3</value>
+  </property>
 </configuration>
 EOF
 
 sudo systemctl enable --now hadoop-secondarynamenode.service
-
